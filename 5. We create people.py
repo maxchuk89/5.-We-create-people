@@ -1,5 +1,7 @@
-import file_operations
+
+import os
 import random
+import file_operations
 from faker import Faker
 
 
@@ -117,6 +119,8 @@ def main():
         }
 
         output_svgname = "output/svg/result_{}.svg".format(i)
+        os.makedirs(os.path.dirname(output_svgname), exist_ok=True)
+        
         file_operations.render_template("src/charsheet.svg", output_svgname, context)
 
 if __name__ == '__main__':
